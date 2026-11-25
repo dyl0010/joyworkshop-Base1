@@ -1,0 +1,37 @@
+{
+    "folders":
+    [
+        {
+            "path": ".",
+            "folder_exclude_patterns": ["build", ".git"],
+            "file_exclude_patterns": ["*.obj", "*.pdb", "*.ilk", "*.exe"]
+        }
+    ],
+    "build_systems":
+    [
+        {
+            "name": "Build and Run SDL3",
+            "cmd": ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${project_path}/build.ps1"],
+            "working_dir": "${project_path}",
+            "selector": "source.c++"
+        },
+        {
+            "name": "Build SDL3 Debug (No Run)",
+            "cmd": ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${project_path}/build.ps1", "-NoRun"],
+            "working_dir": "${project_path}",
+            "selector": "source.c++"
+        },
+        {
+            "name": "Build and Run SDL3 Release",
+            "cmd": ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${project_path}/build.ps1", "-Config", "Release"],
+            "working_dir": "${project_path}",
+            "selector": "source.c++"
+        },
+        {
+            "name": "Clean Build and Run SDL3",
+            "cmd": ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${project_path}/build.ps1", "-Clean"],
+            "working_dir": "${project_path}",
+            "selector": "source.c++"
+        }
+    ]
+}

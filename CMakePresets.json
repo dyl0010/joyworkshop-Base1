@@ -1,0 +1,29 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "windows-msvc-x64-debug",
+      "displayName": "Windows MSVC x64 Debug",
+      "description": "Configure with Visual Studio 2022 targeting x64 so local SDL3 package architecture detection succeeds.",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build/vs-x64-debug",
+      "cacheVariables": {
+        "SDL3_ROOT": "${sourceDir}/external/SDL3"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "windows-msvc-x64-debug",
+      "displayName": "Windows MSVC x64 Debug",
+      "configurePreset": "windows-msvc-x64-debug",
+      "configuration": "Debug"
+    }
+  ]
+}
